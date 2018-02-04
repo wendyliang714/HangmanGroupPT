@@ -1,0 +1,18 @@
+#Check user input and return it if valid
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+def is_letter(user_input):
+    if user_input in alphabet:
+        return True
+    else:
+	    return False
+    
+def get_guess():
+    guess = input("Type in a one letter guess: ")
+    while is_letter(guess) == False:
+        guess = input("whoops, that wasn't a letter, please type another: " )
+    else:
+        print(guess)
+        return guess
+
+get_guess()
