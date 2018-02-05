@@ -1,0 +1,17 @@
+secret_word = "hello"
+dashes = "_ " * len(choice)
+    
+def get_guess():
+    while True:
+        guess = input("Guess a letter: ")
+        if not guess.islower():
+            print "Your guess must be a lowercase letter!"
+        elif len(guess) != 1:
+            print "Your guess must have exactly one character!"
+        elif guess not in secret_word:
+            print "That letter is not in the secret word!"
+        else:
+            print "That letter is in the secret word!"
+            
+print dashes
+get_guess()
