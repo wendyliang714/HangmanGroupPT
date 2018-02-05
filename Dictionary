@@ -1,0 +1,7 @@
+import random
+words = ["hello", "python", "program", "love", "save", "exercise", 
+"funny", "trust", "respect", "start"]
+def choice():
+    return random.choice(words)
+print choice()
+    
