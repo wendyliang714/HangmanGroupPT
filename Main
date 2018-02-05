@@ -1,7 +1,13 @@
 #Start Code: Wenxin on dictionary, benji user input and verification, madison on round, benji on list work
 
-#an example word
-word1 = "hello"
+import random
+
+words = ["hello", "python", "program", "love", "save", "exercise", 
+"funny", "trust", "respect", "start"]
+def choice():
+    return random.choice(words)
+word1 = choice()
+print word1
 #writes out underscores in place of each letter
 word_lines = ["_ "] * len(word1)
 print(word_lines)
