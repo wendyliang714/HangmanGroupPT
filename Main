@@ -7,7 +7,7 @@ words = ["hello", "python", "program", "love", "save", "exercise",
 def choice():
     return random.choice(words)
 word1 = choice()
-print word1
+print(word1)
 #writes out underscores in place of each letter
 word_lines = ["_ "] * len(word1)
 print(word_lines)
