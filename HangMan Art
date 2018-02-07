@@ -17,3 +17,5 @@ row5 = ['|          ']
 row6 = ['|         ']
 
 
+def draw_hangman(round):
+
