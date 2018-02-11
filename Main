@@ -8,9 +8,10 @@ def choice():
     return random.choice(words)
 word1 = choice()
 print(word1)
+
 #writes out underscores in place of each letter
 word_lines = ["_ "] * len(word1)
-print(word_lines)
+print(" ".join(word_lines))
 
 
 #Check user input and return it if valid
@@ -57,4 +58,4 @@ def word_reveal(word, lines, guess):
 #testing out functions
 print(check_guess(user_guess, word1))
 word_reveal(word1, word_lines, user_guess)
-print(word_lines)
+print(" ".join(word_lines))
