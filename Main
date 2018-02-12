@@ -10,7 +10,7 @@ word1 = choice()
 print(word1)
 
 #writes out underscores in place of each letter
-word_lines = ["_ "] * len(word1)
+word_lines = ["_"] * len(word1)
 print(" ".join(word_lines))
 
 
@@ -31,7 +31,6 @@ def get_guess():
         print(guess)
         return guess
 
-user_guess = get_guess()
 
 
 #checks if guess is in word to tell if hangman should be created
@@ -53,9 +52,36 @@ def word_placement(word, guess):
 def word_reveal(word, lines, guess):
   for placement in word_placement(word, guess):
     lines[placement] = word[placement]
+
+row1 = ['____________']
+row2 = ['|           ']
+row3 = ['|           ']
+row4 = ['|          ']
+row5 = ['|          ']
+row6 = ['|         ']
+
+struct = [row1, row2, row3, row4, row5, row6]
+
+draw1 = ['|']
+draw2 = ['O']
+draw3 = ["/|V"]
+draw4 = ['|']
+draw5 = ["/ |"]
+drawing = [draw1, draw2, draw3, draw4, draw5]
+
+def draw_hangman(round_num):
+  struct[round_num + 1].append(drawing[round_num])
+  return struct
   
   
 #testing out functions
-print(check_guess(user_guess, word1))
-word_reveal(word1, word_lines, user_guess)
-print(" ".join(word_lines))
+
+for i in range(10):
+  user_guess = get_guess()
+  print(check_guess(user_guess, word1))
+  word_reveal(word1, word_lines, user_guess)
+  #print out hangman
+  for row in draw_hangman(i):
+    print(row)
+  print(" ".join(word_lines))
+  
