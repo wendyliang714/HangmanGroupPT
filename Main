@@ -73,7 +73,26 @@ def draw_hangman(round_num):
   struct[round_num + 1].append(drawing[round_num])
   return struct
   
-  
+# Madison below  \/ 
+
+round = int(1)
+while round < 6:
+
+    if is_letter(user_guess) == True:
+#      print ("You have" + int(guess_left) + "guesses left")
+       round = round + 1
+       print (round)
+       draw_hangman(round)    
+    else:
+        print ("You guessed a correct letter")
+    
+    print(check_guess(user_guess, word1))
+    word_reveal(word1, word_lines, user_guess)
+    print(" ".join(word_lines))
+    break
+
+# Madison above /\
+
 #testing out functions
 
 for i in range(10):
