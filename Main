@@ -79,7 +79,6 @@ round = int(1)
 while round < 6:
 
     if is_letter(user_guess) == True:
-#      print ("You have" + int(guess_left) + "guesses left")
        round = round + 1
        print (round)
        draw_hangman(round)    
