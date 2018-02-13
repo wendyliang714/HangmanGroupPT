@@ -1,4 +1,4 @@
-#Start Code: Wenxin on dictionary, benji user input and verification, madison on round, benji on list work
+ #Start Code: Wenxin on dictionary, benji user input and verification, madison on round, benji on list work
 
 import random
 
@@ -19,9 +19,9 @@ print(" ".join(word_lines))
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 def is_letter(user_input):
     if user_input in alphabet:
-        return True
+      return True
     else:
-	    return False
+      return False
     
 def get_guess():
     guess = input("Type in a one letter guess: ")
@@ -54,52 +54,49 @@ def word_reveal(word, lines, guess):
     lines[placement] = word[placement]
 
 row1 = ['____________']
-row2 = ['|           ']
-row3 = ['|           ']
-row4 = ['|          ']
-row5 = ['|          ']
-row6 = ['|         ']
+row2 = ['|       ']
+row3 = ['|       ']
+row4 = ['|       ']
+row5 = ['|        ']
+row6 = ['|       ']
 
 struct = [row1, row2, row3, row4, row5, row6]
-
+draw0 = [""]
 draw1 = ['|']
-draw2 = ['O']
+draw2 = ['@']
 draw3 = ["/|V"]
 draw4 = ['|']
 draw5 = ["/ |"]
-drawing = [draw1, draw2, draw3, draw4, draw5]
+drawing = [draw0, draw1, draw2, draw3, draw4, draw5]
 
 def draw_hangman(round_num):
-  struct[round_num + 1].append(drawing[round_num])
+  struct[round_num].append(drawing[round_num])
   return struct
   
 # Madison below  \/ 
-
-round = int(1)
-while round < 6:
-
-    if is_letter(user_guess) == True:
-       round = round + 1
-       print (round)
-       draw_hangman(round)    
-    else:
-        print ("You guessed a correct letter")
-    
+#Just edited for bugs - Benji
+round = 0
+while round < 5:
+    user_guess = get_guess()
     print(check_guess(user_guess, word1))
     word_reveal(word1, word_lines, user_guess)
-    print(" ".join(word_lines))
-    break
+    
+    if check_guess(user_guess, word1) == False:
+      round = round + 1
+      print (round)
+      for row in draw_hangman(round):
+        print(row)
+      print(" ".join(word_lines))
+    else:
+        print ("You guessed a correct letter")
+        print(round)
+        print(" ".join(word_lines))
+
+
+    if word_lines == list(word1):
+      print("You Win!")
+      break
+else:
+  print("Game Over")
 
 # Madison above /\
-
-#testing out functions
-
-for i in range(10):
-  user_guess = get_guess()
-  print(check_guess(user_guess, word1))
-  word_reveal(word1, word_lines, user_guess)
-  #print out hangman
-  for row in draw_hangman(i):
-    print(row)
-  print(" ".join(word_lines))
-  
